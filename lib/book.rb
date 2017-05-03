@@ -11,4 +11,8 @@ class Book
   def Book.all
     @@all_books
   end
+
+  def save
+    @@all_books.push(self)
+  end
 end

@@ -37,4 +37,11 @@ describe(Book) do
     end
   end
 
+  describe("#save") do
+    it('will add a book to book array') do
+      test_book = Book.new({:title => 'Outliers', :author => 'Malcolm Gladwell', :book_id => nil})
+      expect(test_book.save).to(eq([test_book]))
+    end
+  end
+
 end
