@@ -1,0 +1,10 @@
+<h2>Books</h2>
+
+<ul>
+    <% Library::Book.all.to_a.each do |book| %>
+        <%= "<li><a href='/book/#{book['id']}'>#{book['title']}</li>" %>
+     <% end %>
+  </ul>
+
+  <a href="/librarian">Add book</a>
+  <a href="/all_books">Book list</a>

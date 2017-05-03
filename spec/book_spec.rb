@@ -10,7 +10,7 @@ describe Library do
 
     describe 'Library::Book.all' do
       it 'returns an empty array' do
-        expect(Library::Book.all.ntuples).to eq(0)
+        expect(Library::Book.all.to_a).to eq([])
       end
     end
 

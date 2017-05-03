@@ -4,8 +4,8 @@ require 'pry'
 module Library
 
   DB = PG.connect({:dbname => 'library_test'})
-  class Book
 
+  class Book
 
     def self.add(title,author)
     DB.exec("INSERT INTO books VALUES (uuid_generate_v4(), '#{title}', '#{author}') RETURNING id;")
