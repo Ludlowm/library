@@ -31,4 +31,10 @@ describe(Book) do
       expect(test_book.id).to(eq(nil))
     end
   end
+  describe('.all') do
+    it('returns an empty array') do
+      expect(Book.all).to(eq([]))
+    end
+  end
+
 end
