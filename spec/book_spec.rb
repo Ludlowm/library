@@ -20,9 +20,15 @@ describe(Book) do
   end
 
   describe('#author') do
-    it('will create add an author to a book') do
+    it('will add an author to a book') do
       test_book = Book.new({:title => 'Outliers', :author => 'Malcolm Gladwell', :book_id => nil})
       expect(test_book.author).to(eq('Malcolm Gladwell'))
+    end
+  end
+  describe('#book_id') do
+    it('will add an id for a book') do
+      test_book = Book.new({:title => 'Outliers', :author => 'Malcolm Gladwell', :book_id => nil})
+      expect(test_book.id).to(eq(nil))
     end
   end
 end
