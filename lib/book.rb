@@ -5,7 +5,7 @@ class Book
   def initialize(attributes)
     @title = attributes.fetch(:title)
     @author = attributes.fetch(:author)
-    @book_id = attributes.fetch(:book_id)
+    @id = attributes.fetch(:id)
   end
 
   def Book.all
@@ -14,5 +14,15 @@ class Book
 
   def save
     @@all_books.push(self)
+  end
+
+  def Book.find(book_id)
+    found_book = nil
+    @@all_books.each() do |book|
+      if book.id().eql?(book_id)
+        found_book = book_id
+      end
+    end
+    found_book
   end
 end
