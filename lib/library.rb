@@ -16,7 +16,7 @@ module Library
     end
 
 
-    def self.find_by(field,value)
+    def self.find_by(field, value)
       DB.exec("SELECT * FROM books WHERE #{field} = '#{value}' ORDER BY title DESC;").to_a
     end
 
@@ -24,5 +24,8 @@ module Library
       DB.exec("DELETE FROM books WHERE id = '#{id}';")
     end
 
+    def self.update(field, value)
+      DB.exec("UPDATE books SET #{field} = '#{value}';").to_a
+    end
   end
 end

@@ -10,7 +10,7 @@ describe Library do
 
     describe 'Library::Book.all' do
       it 'returns an empty array' do
-        expect(Library::Book.all.to_a).to eq([])
+        expect(Library::Book.all.ntuples).to eq(0)
       end
     end
 
@@ -38,6 +38,14 @@ describe Library do
         expect(result.result_status).to eq(PG::PGRES_COMMAND_OK)
       end
     end
+
+    describe 'Library::Book.update' do
+      it 'updates a book from the database' do
+        Library::Book.add('Outliers', 'Malcolm Gladwell').getvalue(0,0)
+        expect(result = Library::Book.update('title', 'title')).to be_a(Array)
+      end
+    end
+
 
   end
 end
