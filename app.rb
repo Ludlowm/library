@@ -38,6 +38,19 @@ patch '/book/:id' do
   erb :book
 end
 
+get '/book/:id/delete' do
+  @book = Library::Book.find_by('id', params['id'])
+  erb :delete_book
+end
+
+delete '/book/:id' do
+  Library::Book.delete("#{params['id']}")
+  @book = Library::Book.find_by('id', params['id'])
+erb :book_list
+end
+
+
+
 
 # get '/librarian/:find_by' do
 #   Library::Book.find_by(params.fetch('find-title'), params.fetch('find-author'))

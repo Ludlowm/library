@@ -2,5 +2,5 @@
 <h3> By: <%= @book[0]["author"] %></h3>
 
 <br><a href="/books">Book list</a>
-<br><a href="/">Delete book</a>
+<br><a href="/book/<%= @book[0]["id"] %>/delete">Delete book</a>
 <br><a href="/book/<%= @book[0]["id"] %>/update">Update book info</a>

@@ -1,0 +1,7 @@
+<h2>Delete: <%= @book[0]["title"] %></h2>
+
+<form action="/book/<%= @book[0]['id'] %>" method="post">
+  <input name="_method" type="hidden" value="delete">
+
+  <button type="submit">Delete book</button>
+</form>
