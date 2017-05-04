@@ -2,9 +2,8 @@
 
 <ul>
     <% Library::Book.all.to_a.each do |book| %>
-        <%= "<li><a href='/book/#{book['id']}'>#{book['title']}</li>" %>
+        <%= "<li><a href='/book/#{book['id']}'>#{book['title']}</a></li>" %>
      <% end %>
   </ul>
 
   <a href="/librarian">Add book</a>
-  <a href="/all_books">Book list</a>

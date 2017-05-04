@@ -24,8 +24,9 @@ module Library
       DB.exec("DELETE FROM books WHERE id = '#{id}';")
     end
 
-    def self.update(field, value)
-      DB.exec("UPDATE books SET #{field} = '#{value}';").to_a
+    def self.update(field, value, conditions)
+      puts "UPDATE books SET #{field} = '#{value}' WHERE #{conditions};"
+      DB.exec("UPDATE books SET #{field} = '#{value}' WHERE #{conditions};").to_a
     end
   end
 end

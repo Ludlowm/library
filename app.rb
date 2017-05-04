@@ -5,20 +5,42 @@ require 'pry'
 
 also_reload('lib/**/*.rb')
 
-get ('/') do
-  erb (:index)
+get '/' do
+  erb :index
 end
 
-get ('/librarian') do
-  erb (:book_form)
+get '/librarian' do
+  erb :book_form
 end
 
-post('/books') do
-  Library::Book.add(params.fetch('title'), params.fetch('author'))
-  erb (:book_list)
+get '/books' do
+  erb :book_list
 end
 
-  get('/book/:id') do
+post '/books' do
+  Library::Book.add(params['title'], params['author'])
+  erb :book_list
+end
 
+get '/book/:id' do
+ @book = Library::Book.find_by('id', params['id'])
   erb :book
 end
+
+get '/book/:id/update' do
+  @book = Library::Book.find_by('id', params['id'])
+  erb :update_book
+end
+
+patch '/book/:id' do
+  Library::Book.update('title', params['updated-title'], "id = '#{params['id']}'")
+  @book = Library::Book.find_by('id', params['id'])
+  erb :book
+end
+
+
+# get '/librarian/:find_by' do
+#   Library::Book.find_by(params.fetch('find-title'), params.fetch('find-author'))
+#   erb :book_form
+#
+# end
