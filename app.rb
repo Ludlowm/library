@@ -34,6 +34,7 @@ end
 
 patch '/book/:id' do
   Library::Book.update('title', params['updated-title'], "id = '#{params['id']}'")
+  # Library::Book.update('author', params['updated-author'], "id = '#{params['id']}'")
   @book = Library::Book.find_by('id', params['id'])
   erb :book
 end
@@ -49,7 +50,10 @@ delete '/book/:id' do
 erb :book_list
 end
 
-
+get '/librarian/search' do
+  @author=Library::Book.find_by('title', params['find-title'])
+erb :found_book
+end
 
 
 # get '/librarian/:find_by' do

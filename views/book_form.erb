@@ -1,6 +1,6 @@
-<h2>Enter a book</h2>
+<h2>Add a book</h2>
 
-<form action="books" method="post">
+<form action="/books" method="post">
 <label for="title">Title</label>
 <input name="title" type="text">
 
@@ -11,11 +11,12 @@
 </form>
 <a href="/books">Book list</a>
 
-<form action="librarian/:find_by" method="get">
+
+<form action="/librarian/search" method="get">
 <label for="find-title">Find by Title</label>
 <input name="find-title" type="text">
 
-<label for="find-author">Find by Author</label>
-<input name="find-author" type="text">
-<button type="submit">Add book</button>
+<!-- <label for="find-author">Find by Author</label>
+<input name="find-author" type="text"> -->
+<button type="submit">Find book</button>
 </form>
